@@ -11,10 +11,9 @@
   <body >
     <%=render "/layouts/header" %>
 
-    <div class="alert alert-warning">
-      <%= render "/layouts/flash" %>
-    </div>
-    
+
+    <%= render "/layouts/flash" %>
+
     <div class="container" >
       <%= yield %>
     </div>
