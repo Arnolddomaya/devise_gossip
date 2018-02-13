@@ -13,6 +13,12 @@
     <%= f.text_field :anonymous_username, autocomplete: "off" %>
   </div>
 
+
+  <div class="field">
+    <%= f.label :Code  %><br />
+    <%= f.text_field :sign_up_code, autocomplete: "off"  %>
+  </div>
+
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>

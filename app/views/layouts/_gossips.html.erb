@@ -1,6 +1,6 @@
 <% unless @gossips.empty? %>
   <% @gossips.each do |gossip| %>
-    <p> <strong>Gossip N°  <%= gossip.id %></strong>,  <%=gossip.content %>, <em>Created by</em> <strong><%= gossip.user.anonymous_username %></strong> <strong> <%= link_to "[voir]", gossip %></strong>
+    <p> <strong>Gossip N°  <%= gossip.id %></strong>,  <%=gossip.content %>, <em>Created at</em> <strong><%= gossip.created_at%></strong> <em>by</em> <strong><%= gossip.user.anonymous_username %></strong> <strong> <%= link_to "[voir]", gossip %></strong>
       <% if current_user == gossip.user %>
         <strong><%= link_to "[Suprimer]", gossip, method: :delete  %></strong>
       <% end %>
