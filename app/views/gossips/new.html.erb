@@ -1,0 +1,6 @@
+<h1>Nouveau Gossip</h1>
+<%= form_for @gossip, url: {action: "create"} do |gossip_form| %>
+  <p><%= gossip_form.label :Content %>:
+  <%= gossip_form.text_area :content %></p>
+  <p><%= gossip_form.submit "Créer" %></p>
+<% end %>

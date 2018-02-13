@@ -1,0 +1,4 @@
+<h1>Gossip n° <strong><%= @gossip.id %></strong></h1>
+<p>by <strong><%=@gossip.user.anonymous_username %><strong></p>
+<p><%=@gossip.content %></p>
+<%= render "/layouts/deleteGossips" %>

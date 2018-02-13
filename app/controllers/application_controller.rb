@@ -1,7 +1,12 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  def home
-    render html: "hello word Devise!"
-  end 
+
+
+  before_action :sanitize_devise_params, if: :devise_controller?
+
+
+  def sanitize_devise_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:anonymous_username])
+  end
 end

@@ -1,0 +1,3 @@
+<% if current_user == @gossip.user %>
+  <%= link_to "[Suprimer]", @gossip, method: :delete  %>
+<% end %>
