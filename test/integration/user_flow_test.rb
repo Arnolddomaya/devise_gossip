@@ -6,12 +6,10 @@ class UserFlowTest < ActionDispatch::IntegrationTest
   #   assert true
   # end
   def setup
-    user = User.new(anonymous_username:"anonymous",
-      sign_up_code:"GOSSIP_2017", password:"motdepasse",password_confirmation:"motdepasse",
-      email:"monEmail@gmail.com").save
+    @user = users(:tom)
   end
 
-  test "home redirect to signup if not loggin" do
+  test "index redirect to signup if not loggin" do
     get root_path
     assert_redirected_to new_user_session_path
     # assert_template '/sign_up'
@@ -25,12 +23,22 @@ class UserFlowTest < ActionDispatch::IntegrationTest
     # assert flash.empty?
   end
 
-  test "home redirect to gossips#index if not loggin" do
-    sign_in user
+  test "redirect to gossip#index after sign up" do
+    get new_user_registration_path
+    post user_registration_path, params: {email:    "New_email@dmail.com",
+                                          anonymous_username: "testAnonym",
+                                          password: 'motdepasse',
+                                          password_confirmation:'motdepasse',
+                                          sign_up_code:"GOSSIP_2017"}
+    assert_response :success
+  end
+
+  test "index access if  loggin" do
+    sign_in @user
     get root_path
-    assert_redirected_to gossips_path
+    assert_response :success
 
-
+  #  assert request.fullpath == "/gossips"
 
   end
 
