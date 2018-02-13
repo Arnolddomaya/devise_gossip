@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  render html: "hello word Devise!"
+  def home
+    render html: "hello word Devise!"
+  end 
 end
