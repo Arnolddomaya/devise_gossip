@@ -10,7 +10,11 @@
 
   <body >
     <%=render "/layouts/header" %>
-    <%= render "/layouts/flash" %>
+
+    <div class="alert alert-warning">
+      <%= render "/layouts/flash" %>
+    </div>
+    
     <div class="container" >
       <%= yield %>
     </div>
